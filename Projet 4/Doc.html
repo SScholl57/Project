@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" >
+    <title>Character stat calculator</title>
+    <link href="style.css" rel="stylesheet" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="">
+
+      <div id="authForm">
+        <h2>Sign In</h2>
+        <input type="email" placeholder="email" id="userEmail">
+        <input type="password" placeholder="password" id="userPassword"> <br><br>
+        <button id="signUpButton">Account Creation</button>
+        <button id="signInButton">Connect</button>
+
+      </div>
+
+       <div>
+        <input id="objectName" type="text">
+        <label for="objectType">Choose a Type:</label>
+        <select name="objectTypeSelect" id="objectType">
+            <option value="">Please choose an option</option>
+            <option value="Weapon">Weapon</option>
+            <option value="Armor">Armor</option>
+            <option value="Potion">Potion</option>
+            <option value="Scroll">Scroll</option>
+            <option value="Material">Material</option>
+            <option value="Money">Money</option>
+            <option value="Food">Food</option>
+        </select>
+        <select name="objectLegendarySelect" id="objectLegendaryMod">
+          <option value="No Legendary">No Legendary</option>
+          <option value="Powerful">Powerful</option>
+          <option value="Quickness">Quickness</option>
+          <option value="Lucky">Lucky</option>
+          <option value="Endurance">Endurance</option>
+          <option value="Smart">Smart</option>
+          <option value="Cunning">Cunning</option>
+          <option value="Athlete">Athlete</option>
+          <option value="Detective">Detective</option>
+          <option value="Strong">Strong</option>
+          <option value="Genius">Genius</option>
+          <option value="Purity">Purity</option>
+        </select>
+        <input id="objectGoldValue" type="number">
+        <button id="objectCreate">Create</button>
+
+        
+        <button id="objectRemove">Remove</button>
+
+        <select name="objectRemoveSelect" id="objectRemoveList"></select>
+        
+        <div id="creationKit">
+          <div id="creationCommon">
+            <select name="objectTypeList" id="objectTypeList">
+              <option value="Weapon">Weapon</option>
+              <option value="Armor">Armor</option>
+              <option value="Potion">Potion</option>
+              <option value="Scroll">Scroll</option>
+              <option value="Material">Material</option>
+              <option value="Money">Money</option>
+              <option value="Food">Food</option>
+            </select>
+            <div id="creationName">
+              <select name="objectRarityList" id="objectRarityList">
+                <option value="Common">Common</option>
+                <option value="Rare">Rare</option>
+                <option value="Unique">Unique</option>
+                <option value="Epic">Epic</option>
+                <option value="Legendary">Legendary</option>
+                <option value="Divine">Divine</option>
+                <option value="Primordial">Primordial</option>
+              </select>
+              <input id="" type="text" placeholder="Item's name">
+            </div>
+            <div id="creationBasic">
+              <input id="" type="number" placeholder="Weight">
+              <input id="" type="number" placeholder="Gold value">
+            </div>
+          </div>
+          <div id="creationVariable">
+            <div id="creationWeapon">
+              <select name="weaponType" id="weaponType">
+                <option value="Sword">Sword</option>
+                <option value="Axe">Axe</option>
+                <option value="Hammer">Hammer</option>
+                <option value="Shortsword">Shortsword</option>
+                <option value="Spear">Spear</option>
+                <option value="Staff">Staff</option>
+                <option value="Throwing Weapon">Throwing Weapon</option>
+                <option value="Bow">Bow</option>
+                <option value="Crossbow">Crossbow</option>
+              </select>
+              <label for="weaponTwoHanded">Two handed</label>
+              <input type="checkbox" id="weaponTwoHanded" name="weaponTwoHanded">
+              <input id="weaponDamageValue" type="number" placeholder="0">
+              <select name="weaponLegendaryMod" id="weaponLegendaryMod"></select>
+            </div>
+            <div id="creationArmor">
+              <select name="armorType" id="armorType">
+                <option value="Light">Light</option>
+                <option value="Medium">Medium</option>
+                <option value="Heavy">Heavy</option>
+              </select>
+              <input id="armorClassValue" type="number" placeholder="0">
+              <select name="armorLegendaryMod" id="armorLegendaryMod"></select>
+            </div>
+            <div id="creationPotion">
+
+            </div>
+            <div id="creationScroll">
+
+            </div>
+            <div id="creationMaterial">
+
+            </div>
+            <div id="creationMoney">
+
+            </div>
+            <div id="creationFood">
+
+            </div>
+          </div>
+          <button id="">Create</button>
+        </div>
+       </div>
+
+       <script type="module" defer>
+        // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+   
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSOMTnqSp9YMqNThdPZaV2ZaIrq2aqcNs",
+      authDomain: "ttrpg-database-experiment.firebaseapp.com",
+      databaseURL: "https://ttrpg-database-experiment-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "ttrpg-database-experiment",
+      storageBucket: "ttrpg-database-experiment.appspot.com",
+      messagingSenderId: "642474909125",
+      appId: "1:642474909125:web:10a4da48b7ee295d0cffac",
+      measurementId: "G-TW17GPER06"
+    };
+   
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const analytics = getAnalytics(app);
+    
+    const userEmail = document.querySelector("#userEmail");
+    const userPassword = document.querySelector("#userPassword");
+    const authForm = document.querySelector("#authForm")
+    const signUpButton = document.querySelector("#signUpButton")
+    const signInButton = document.querySelector("#signInButton")
+   
+    const userSignUp = async() => {
+      const signUpEmail = userEmail.value;
+      const signUpPassword = userPassword.value;
+      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        alert("Account Created !");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage)
+      })
+    }
+   
+    signUpButton.addEventListener('click', userSignUp)
+   
+    const userSignIn = async() => {
+      const signInEmail = userEmail.value;
+      const signInPassword = userPassword.value;
+      signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("You have signed in !")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage)
+      })
+    }
+   
+    signInButton.addEventListener('click', userSignIn)
+   
+    import {getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"
+   
+    const db = getDatabase();
+   
+   
+    var objectName = document.querySelector("#objectName")
+    var objectType = document.querySelector("#objectType")
+    var objectLegendaryMod = document.querySelector("#objectLegendaryMod")
+    var objectGoldValue = document.querySelector("#objectGoldValue")
+    var objectCreateBtn = document.querySelector("#objectCreate")
+    var objectRemoveBtn = document.querySelector("#objectRemove")
+   
+    
+    let items = []
+    async function loadItems(){
+      const snapshot = await get(ref(db, "Items/"))
+      items = snapshot.val()
+      console.log(items)
+    }
+   
+    function fillItemsList(){
+      const selectElement = document.getElementById('objectRemoveList')
+      for(const key in items){
+        const item = items[key]
+        const nameValue = item.Name
+        const option = document.createElement('option');
+        option.value = key;
+        option.text = nameValue;
+        selectElement.appendChild(option);
+      }
+    }    
+   
+    loadItems().then(fillItemsList)
+
+
+
+
+   
+    function InsertData() {
+      if(objectName.value.length != 0){
+        set(ref(db, "Items/" + objectName.value), {
+            Name: objectName.value,
+            Type: objectType.value,
+            Legendary: objectLegendaryMod.value,
+            Value: objectGoldValue.value
+        })
+        .then(()=> {
+            const selectElement = document.getElementById('objectRemoveList')
+            const option = document.createElement('option');
+            option.value = objectName.value;
+            option.text = objectName.value;
+            selectElement.appendChild(option);
+            alert("Object Created !")
+            
+            
+        })
+        .catch((error)=>{
+            alert(error)
+        })
+      }
+      else {
+        alert("Enter a name of an object")
+      }
+    }
+   
+    function RemoveData() {
+      if(objectName.value.length != 0){
+        remove(ref(db, "Items/" + objectName.value), {
+            Name: objectName.value,
+            Type: objectType.value,
+            Legendary: objectLegendaryMod.value,
+            Value: objectGoldValue.value,
+        })
+        .then(()=> {
+            alert("Object removed !")
+            const selectElement = document.getElementById('objectRemoveList')
+            const option = document.createElement('option');
+            option.value = objectName.value;
+            option.text = objectName.value;
+            selectElement.appendChild(option);
+        })
+        .catch((error)=>{
+            alert(error)
+        })
+      }
+      else {
+        alert("Enter a name of an object")
+      }
+    }
+    
+   
+   
+    objectCreateBtn.addEventListener('click', InsertData);
+    objectRemoveBtn.addEventListener('click', RemoveData)
+
+    class Items {
+      constructor(itemName,itemRarity, itemType,itemGoldValue, itemWeightValue){
+        this.itemName = itemName
+        this.itemRarity = itemRarity
+        this.itemType = itemType
+        this.itemGoldValue = itemGoldValue
+        this.itemWeightValue = itemWeightValue
+      }
+    }
+
+    class Weapon extends Items {
+      constructor(itemName,itemRarity, itemType,itemGoldValue, itemWeightValue, weaponType, weaponTwoHanded, weaponDamageValue, weaponLegendaryMod,){
+        super(itemName,itemRarity, itemType,itemGoldValue, itemWeightValue)
+        this.weaponType = weaponType
+        this.weaponTwoHanded = weaponTwoHanded
+        this.weaponDamageValue = weaponDamageValue
+        this.weaponLegendaryMod = weaponLegendaryMod
+      }
+    }
+
+    class Armor extends Items {
+      constructor (itemName,itemRarity, itemType,itemGoldValue, itemWeightValue, armorType, armorClassValue, armorLegendaryMod){
+        super(itemName,itemRarity, itemType,itemGoldValue, itemWeightValue)
+        this.armorType = armorType
+        this.armorClassValue = armorClassValue
+        this.armorLegendaryMod = armorLegendaryMod
+      }
+    }
+
+
+    creationWeapon.style.display = "none"
+    creationArmor.style.display = "none"
+    function creationKit(){
+      let objectTypeList = document.getElementById("objectTypeList").value
+       if (objectTypeList === "Weapon"){
+        creationWeapon.style.display = "block"
+        creationArmor.style.display = "none"
+       }
+       else if (objectTypeList === "Armor"){
+        creationWeapon.style.display = "none"
+        creationArmor.style.display = "block"
+      }
+      else if (objectTypeList === "Potion" && displayKit.style.display ==="none"){
+        displayKit.style.display = "block"
+      }
+      else if (objectTypeList === "Scroll" && displayKit.style.display ==="none"){
+        displayKit.style.display = "block"
+      }
+      else if (objectTypeList === "Material" && displayKit.style.display ==="none"){
+        displayKit.style.display = "block"
+      }
+      else if (objectTypeList === "Money" && displayKit.style.display ==="none"){
+        displayKit.style.display = "block"
+      }
+      else if (objectTypeList === "Food" && displayKit.style.display ==="none"){
+        displayKit.style.display = "block"
+      }
+    }
+
+    objectTypeList.addEventListener('change', creationKit);
+
+   
+
+
+
+    async function CreateItem() {
+      let itemType = document.querySelector("#objectTypeList").value()
+      if (itemType === "Weapon"){
+        let itemName = document.querySelector("#Est une String").value()
+        let itemType = document.querySelector("#Est une String correspondant à une classe").value()
+        let itemGoldValue = document.querySelector("#Est une Valeur").value()
+        let itemWeightValue = document.querySelector("#Est une Valeur").value()
+        let weaponType = document.querySelector("#Est une String").value()
+        let weaponIgnoreResist = document.querySelector("#Est un Boolean").value()
+        let weaponDamageValue = document.querySelector("#Est une Valeur").value()
+        let weaponLegendaryMod = document.querySelector("#Est une String").value()
+        let weaponUnique = document.querySelector("#Est un Boolean").value()
+        return new Weapon(itemName, itemType, itemGoldValue, itemWeightValue, weaponType, weaponIgnoreResist, weaponDamageValue, weaponLegendaryMod, weaponUnique)
+      }
+      else if (itemType === "Armor"){
+        return new Armor()
+      }
+
+      return null
+    }
+    // Initialize Firebase
+   
+     </script>
+    </main>
+  
+</body>
+
+</html>

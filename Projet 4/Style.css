@@ -1,0 +1,106 @@
+*{
+  color: rgb(192, 157, 91);
+  background-color: black;
+}
+
+.flexv {
+    display: flex;
+    flex-direction: column;
+ }
+  
+ .flexh {
+    display: flex;
+    flex-direction: row;
+ }
+
+ .spacebetween {
+   justify-content: space-between;
+ }
+
+ .spacearound {
+  justify-content: space-around;
+}
+
+ .border {
+   border: solid rgb(192, 157, 91) 3px;
+ }
+
+ .justifycontent-center {
+  justify-content: center;
+ }
+
+ .alignself-center {
+  align-self: center;
+ }
+
+ .text-center {
+  text-align: center;
+ }
+
+ .bonus {
+  color: blue;
+ }
+
+ .malus {
+  color: red;
+ }
+
+ .paddingright_20{
+  padding-right: 20px;
+ }
+
+ .lineheight{
+  line-height: 2;
+ }
+
+.margintop_10 {
+  margin-top: 10px;
+}
+
+.marginbottom_10 {
+  margin-bottom: 10px;
+}
+
+.sizemain{
+  width: 100vw;
+  height: 100vh;
+}
+
+.sizestatus{
+  width: 80%;
+  height: 80%;
+}
+
+.size_25 {
+  width: 25%;
+  height: 100%;
+}
+.size_30 {
+  width: 30%;
+}
+
+.size_50 {
+  width: 50%;
+  height: 100%;
+}
+
+.flexgrowth_100 {
+  flex-grow: 100;
+}
+
+.alignself-stretch {
+  align-self: stretch;
+}
+
+.paddingtop_20{
+  padding-top: 20px;
+}
+
+.marginside {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.backgroundname{
+  background-color: rgb(192, 157, 91);
+}

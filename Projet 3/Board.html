@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" >
+    <title>Character stat calculator</title>
+    <link href="Style.css" rel="stylesheet" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script type="text/javascript" src="Script.js" defer></script>
+    <main>
+        <div class="display flexh justifycontent-center">
+            <h1>Triple Triad Board</h1>
+        </div>
+        <div class="flexh border justifycontent-center">
+            <div class="flexv border alignself-center">
+                <!-- Main joueur -->
+                <div class="flexh" >
+                    <!-- Div pour 3 Cartes -->
+                    <div class="border">Carte 1</div>
+                    <div class="border">Carte 2</div>
+                    <div class="border">Carte 3</div>
+                </div>
+                <div class="flexh justifycontent-center">
+                    <!-- Div pour 2 Cartes -->
+                    <div class="border">Carte 4</div>
+                    <div class="border">Carte 5</div>
+                </div>
+            </div>
+            <!-- Grosse div qui englobe tout le terrain -->
+            <div class="flexv border">
+                <!-- Div qui représente une colonne entière -->
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case NW -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case West -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case SW -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flexv border">
+                <!-- Div qui représente une colonne entière -->
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case North -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case Central -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <!-- Case South -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flexv border">
+                <!-- Div qui représente une colonne entière -->
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case NE -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case E -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="flexh border">
+                    <!-- représente une case -->
+                    <!-- Case SE -->
+                    <div class="flexv border">
+                        <!-- représente une sous-colonne -->
+                        <div>
+                            <!-- représente une sous case, X représente un vide, N est un chiffre de 1 à 9 -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                    </div>
+                    <div class="flexv border">
+                        <div>
+                            <!-- représente une sous case -->
+                            X
+                        </div>
+                        <div>
+                            N
+                        </div>
+                        <div>
+                            X
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flexv border alignself-center">
+                <!-- Main Adversaire -->
+                <div class="flexh">
+                    <!-- Div pour 3 Cartes -->
+                    <div class="border">Carte 1</div>
+                    <div class="border">Carte 2</div>
+                    <div class="border">Carte 3</div>
+                </div>
+                <div class="flexh justifycontent-center">
+                    <!-- Div pour 2 Cartes -->
+                    <div class="border">Carte 4</div>
+                    <div class="border">Carte 5</div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+</body>

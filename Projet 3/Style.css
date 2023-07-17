@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.flexh{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexv{
+    display: flex;
+    flex-direction: column;
+}
+
+.border {
+    border: 3px solid black;
+    margin: 2px;
+    padding: 2px;
+}
+
+.justifycontent-center {
+    justify-content: center;
+}
+
+.alignself-center {
+    align-self: center;
+}
